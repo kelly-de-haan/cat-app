@@ -9,6 +9,8 @@ import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import nl.kellydehaan.catapp.data.model.CatBreed
+import nl.kellydehaan.catapp.ui.screens.BreedDetailScreen
 import nl.kellydehaan.catapp.ui.screens.BreedsListScreen
 import nl.kellydehaan.catapp.ui.theme.CatBreedsTheme
 import nl.kellydehaan.catapp.viewmodel.BreedsViewModel
@@ -31,12 +33,26 @@ fun CatBreedsApp() {
 
     val breedsViewModel: BreedsViewModel = viewModel()
 
+    var selectedBreed by remember { mutableStateOf<CatBreed?>(null) }
+
     NavHost(navController = navController, startDestination = "breeds") {
         composable("breeds") {
             BreedsListScreen(
                 viewModel = breedsViewModel,
-                onBreedClick = { }
+                onBreedClick = { breedId ->
+                    selectedBreed = breedsViewModel.uiState.value.breeds.find { it.id == breedId }
+                    navController.navigate("breed_detail")
+                }
             )
+        }
+
+        composable("breed_detail") {
+            selectedBreed?.let { breed ->
+                BreedDetailScreen(
+                    breed = breed,
+                    onBack = { navController.popBackStack() }
+                )
+            }
         }
     }
 }
