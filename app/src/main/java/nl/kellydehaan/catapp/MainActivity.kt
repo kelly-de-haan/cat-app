@@ -33,6 +33,7 @@ fun CatBreedsApp() {
 
     val breedsViewModel: BreedsViewModel = viewModel()
 
+    // TODO: save state in SavedInstanceState for better experience when returning from the background
     var selectedBreed by remember { mutableStateOf<CatBreed?>(null) }
 
     NavHost(navController = navController, startDestination = "breeds") {

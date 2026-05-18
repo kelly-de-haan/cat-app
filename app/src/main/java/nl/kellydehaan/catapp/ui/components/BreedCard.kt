@@ -16,6 +16,7 @@ import androidx.compose.ui.unit.dp
 import coil.compose.AsyncImage
 import nl.kellydehaan.catapp.data.model.CatBreed
 
+// TODO: move hardcoded strings to strings.xml
 @Composable
 fun BreedCard(
     breed: CatBreed,

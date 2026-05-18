@@ -17,9 +17,7 @@ import nl.kellydehaan.catapp.data.model.CatBreed
 import nl.kellydehaan.catapp.ui.components.OriginChip
 import nl.kellydehaan.catapp.ui.components.StatPill
 
-/**
- * Receives the already-loaded breed object passed through the nav graph.
- */
+// TODO: move hardcoded strings to strings.xml
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun BreedDetailScreen(

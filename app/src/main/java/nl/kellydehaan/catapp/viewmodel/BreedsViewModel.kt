@@ -30,6 +30,7 @@ class BreedsViewModel(
         loadBreeds()
     }
 
+    // TODO: support search
     fun loadBreeds() {
         if (_uiState.value.isLoading) return
         _uiState.update { it.copy(isLoading = true, error = null) }

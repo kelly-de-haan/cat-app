@@ -10,6 +10,7 @@ class CatRepository(val api: CatApiService = NetworkClient.catApiService) {
     suspend fun getBreeds(page: Int = 0, limit: Int = 20): Result<List<CatBreed>> =
         withContext(Dispatchers.IO) {
             runCatching {
+                // TODO: add a database layer for caching, offline use and possible search
                 api.getBreeds(limit = limit, page = page)
             }
         }

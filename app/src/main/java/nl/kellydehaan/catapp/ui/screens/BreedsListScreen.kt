@@ -14,6 +14,7 @@ import androidx.lifecycle.viewmodel.compose.viewModel
 import nl.kellydehaan.catapp.ui.components.BreedCard
 import nl.kellydehaan.catapp.viewmodel.BreedsViewModel
 
+// TODO: move hardcoded strings to strings.xml
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun BreedsListScreen(
@@ -127,7 +128,7 @@ private fun ErrorState(
         verticalArrangement = Arrangement.spacedBy(16.dp)
     ) {
         Text(
-            text = "😿 Something went wrong",
+            text = "Something went wrong",
             style = MaterialTheme.typography.headlineSmall
         )
         Text(
